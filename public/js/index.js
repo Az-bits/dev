@@ -1,12 +1,14 @@
-const form = document.querySelectorAll('#form');
+const form = document.querySelector('#form');
 const btn_submit = document.querySelector('[type="submit"]');
 
 btn_submit.addEventListener('click', function (e) {
     e.preventDefault();
+    let formData = new FormData($('#form')[0])
+    console.log(form.action);
     $.ajax({
         url: form.action,
         type: 'post',
-        data: new FormData(form[0]),
+        data: formData,
         cache: false,
         processData: false,
         contentType: false,
